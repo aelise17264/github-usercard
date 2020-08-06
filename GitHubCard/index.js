@@ -80,6 +80,21 @@ axios.get(myUrl)
 
 })
 
+let followerUrl = 'https://api.github.com/users/aelise17264/followers'
+
+axios.get(followerUrl)
+.then(element => {
+  console.log(element.data[0])
+   let newCard = element.data[0]
+  cardContainer.appendChild(cardMaker(newCard))
+   
+})
+.catch(error => {
+  console.log('Error, something went wrong')
+})
+
+
+
 function cardMaker(element){
       let card = document.createElement('div')
       let image = document.createElement('img')
